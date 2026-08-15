@@ -1,48 +1,27 @@
 <div align="center">
-  <h1>🚀 GitDir</h1>
-  <p><b>Download specific directories from GitHub repositories at lightning speed.</b></p>
+  <h1>GitDir</h1>
+  <p><b>A CLI tool to download specific subdirectories from GitHub repositories.</b></p>
   
   <p>
-    <a href="https://github.com/ameen/gitdir/releases/latest"><img alt="Release" src="https://img.shields.io/github/v/release/ameen/gitdir" /></a>
-    <a href="https://github.com/ameen/gitdir/actions/workflows/release.yml"><img alt="Build Status" src="https://img.shields.io/github/actions/workflow/status/ameen/gitdir/release.yml" /></a>
-    <a href="https://go.dev/"><img alt="Go Version" src="https://img.shields.io/github/go-mod/go-version/ameen/gitdir" /></a>
-    <a href="https://github.com/ameen/gitdir/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/github/license/ameen/gitdir" /></a>
+    <a href="https://github.com/Ameen-Sha-Cheerangan/GitDir/releases/latest"><img alt="Release" src="https://img.shields.io/github/v/release/Ameen-Sha-Cheerangan/GitDir" /></a>
+    <a href="https://github.com/Ameen-Sha-Cheerangan/GitDir/actions/workflows/release.yml"><img alt="Build Status" src="https://img.shields.io/github/actions/workflow/status/Ameen-Sha-Cheerangan/GitDir/release.yml" /></a>
+    <a href="https://go.dev/"><img alt="Go Version" src="https://img.shields.io/github/go-mod/go-version/Ameen-Sha-Cheerangan/GitDir" /></a>
+    <a href="https://github.com/Ameen-Sha-Cheerangan/GitDir/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/github/license/Ameen-Sha-Cheerangan/GitDir" /></a>
   </p>
 </div>
 
 <br />
 
-Have you ever wanted to download just a single folder from a massive GitHub repository? 
-`gitdir` makes it effortless. Built in Go, it leverages Git's internal `sparse-checkout` functionality to download exactly what you need without cloning the rest of the repository—saving your time and bandwidth.
+`gitdir` is a Go-based CLI tool that allows you to download specific directories from GitHub repositories without cloning the entire project. It uses Git's internal `sparse-checkout` and `--filter=blob:none` functionality to minimize bandwidth and storage usage by only fetching the files you request.
 
-> 💡 **Why GitDir?**
-> Instead of downloading hundreds of megabytes of a monorepo, `gitdir` downloads just the kilobytes you actually want. It's lightning-fast and compiles down to a single binary.
+## Features
 
-## ✨ Features
-
-- **Blazing Fast**: Uses Git's `blob:none` filter and `sparse-checkout` under the hood.
-- **Standalone Binary**: Written in Go. No Node.js, Python, or Ruby environments required.
-- **Beautiful DX**: Enjoy smooth loading spinners, vibrant colors, and clear error messages.
-- **Cross-Platform**: Works seamlessly on Linux, macOS, and Windows.
+- **Efficient**: Uses Git's `sparse-checkout` feature under the hood.
+- **Standalone**: Distributed as a single compiled Go binary with no external language dependencies.
+- **Cross-Platform**: Supports Linux, macOS, and Windows.
+- **Clear Feedback**: Provides direct terminal output and error handling during downloads.
 
 ## 📦 Installation
-
-### Homebrew (macOS & Linux)
-```bash
-brew tap Ameen-Sha-Cheerangan/homebrew-tap
-brew install gitdir
-```
-
-<details>
-<summary>⚠️ Getting a "not trusted" warning?</summary>
-<br>
-Because this is a third-party tap (not yet in Homebrew Core), Homebrew may ask you to explicitly trust the repository before installing. Simply run:
-
-```bash
-brew trust Ameen-Sha-Cheerangan/tap
-brew install gitdir
-```
-</details>
 
 ### APT (Debian/Ubuntu)
 ```bash
@@ -53,11 +32,20 @@ sudo apt update && sudo apt install gitdir
 ### Go Install
 If you have Go installed, you can build from source:
 ```bash
-go install github.com/ameen/gitdir@latest
+go install github.com/Ameen-Sha-Cheerangan/GitDir@latest
+```
+
+### Homebrew (macOS & Linux)
+> **⚠️ Important:** Because this is a third-party tap, Homebrew requires you to explicitly trust the repository before installing. *(Note: If this tool gains enough users, I will try submitting it to the official Homebrew Core so this extra step won't be necessary! )*
+
+```bash
+brew tap Ameen-Sha-Cheerangan/homebrew-tap
+brew trust Ameen-Sha-Cheerangan/tap
+brew install gitdir
 ```
 
 ### Manual Download
-Grab the latest release for your OS from the [Releases Page](https://github.com/ameen/gitdir/releases/latest).
+Grab the latest release for your OS from the [Releases Page](https://github.com/Ameen-Sha-Cheerangan/GitDir/releases/latest).
 
 ## 🚀 Usage
 
