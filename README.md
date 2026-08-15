@@ -41,6 +41,7 @@ brew update && brew install gitdir
 If you have Go installed, you can build from source:
 ```bash
 go install github.com/Ameen-Sha-Cheerangan/GitDir@latest
+mv ~/go/bin/GitDir ~/go/bin/gitdir
 ```
 
 ### Manual Download
