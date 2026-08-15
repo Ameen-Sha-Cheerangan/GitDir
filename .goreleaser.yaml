@@ -1,0 +1,82 @@
+version: 2
+
+project_name: gitdir
+
+before:
+  hooks:
+    - go mod tidy
+
+builds:
+  - env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - windows
+      - darwin
+    goarch:
+      - amd64
+      - arm64
+    main: ./main.go
+
+archives:
+  - format: tar.gz
+    name_template: >-
+      {{ .ProjectName }}_
+      {{- title .Os }}_
+      {{- if eq .Arch "amd64" }}x86_64
+      {{- else if eq .Arch "386" }}i386
+      {{- else }}{{ .Arch }}{{ end }}
+      {{- if .Arm }}v{{ .Arm }}{{ end }}
+    format_overrides:
+      - goos: windows
+        format: zip
+
+nfpms:
+  - id: default
+    package_name: gitdir
+    vendor: ameen
+    homepage: https://github.com/ameen/gitdir
+    maintainer: ameen
+    description: Download specific directories from GitHub repositories at lightning speed.
+    license: MIT
+    formats:
+      - deb
+      - rpm
+      - apk
+
+brews:
+  - repository:
+      owner: ameen
+      name: homebrew-tap
+    commit_author:
+      name: ameen
+      email: ameen@users.noreply.github.com
+    commit_msg_template: "Brew formula update for {{ .ProjectName }} version {{ .Tag }}"
+    description: "Download specific directories from GitHub repositories at lightning speed."
+    homepage: "https://github.com/ameen/gitdir"
+    license: "MIT"
+    
+scoops:
+  - repository:
+      owner: ameen
+      name: scoop-bucket
+    commit_author:
+      name: ameen
+      email: ameen@users.noreply.github.com
+    commit_msg_template: "Scoop update for {{ .ProjectName }} version {{ .Tag }}"
+    description: "Download specific directories from GitHub repositories at lightning speed."
+    homepage: "https://github.com/ameen/gitdir"
+    license: "MIT"
+
+checksum:
+  name_template: 'checksums.txt'
+
+snapshot:
+  name_template: "{{ incpatch .Version }}-next"
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - '^docs:'
+      - '^test:'
