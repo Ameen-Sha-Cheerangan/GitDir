@@ -1,0 +1,44 @@
+name: Update APT Repository
+
+on:
+  workflow_run:
+    workflows: ["Release"]
+    types:
+      - completed
+
+permissions:
+  contents: write
+
+jobs:
+  update-apt-repo:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - name: Checkout gh-pages
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+
+      - name: Download .deb files from Latest Release
+        uses: robinraju/release-downloader@v1.10
+        with:
+          repository: ${{ github.repository }}
+          latest: true
+          fileName: "*.deb"
+
+      - name: Build APT Packages Index
+        run: |
+          sudo apt-get update && sudo apt-get install -y dpkg-dev apt-utils
+          
+          # Generate Packages metadata (no Ign errors!)
+          dpkg-scanpackages -m . > Packages
+          gzip -k -f Packages
+          apt-ftparchive release . > Release
+
+      - name: Commit and Push to gh-pages
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add *.deb Packages Packages.gz Release
+          git commit -m "chore: update APT repository metadata" || exit 0
+          git push origin gh-pages
