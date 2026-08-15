@@ -28,20 +28,19 @@
 echo 'deb [trusted=yes] https://Ameen-Sha-Cheerangan.github.io/GitDir/ /' | sudo tee /etc/apt/sources.list.d/gitdir.list
 sudo apt update && sudo apt install gitdir
 ```
-
-### Go Install
-If you have Go installed, you can build from source:
-```bash
-go install github.com/Ameen-Sha-Cheerangan/GitDir@latest
-```
-
 ### Homebrew (macOS & Linux)
 > **⚠️ Important:** Because this is a third-party tap, Homebrew requires you to explicitly trust the repository before installing. *(Note: If this tool gains enough users, I will try submitting it to the official Homebrew Core so this extra step won't be necessary! )*
 
 ```bash
 brew tap Ameen-Sha-Cheerangan/homebrew-tap
 brew trust Ameen-Sha-Cheerangan/tap
-brew install gitdir
+brew update && brew install gitdir
+```
+
+### Go Install
+If you have Go installed, you can build from source:
+```bash
+go install github.com/Ameen-Sha-Cheerangan/GitDir@latest
 ```
 
 ### Manual Download
