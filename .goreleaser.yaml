@@ -34,9 +34,9 @@ archives:
 nfpms:
   - id: default
     package_name: gitdir
-    vendor: ameen
-    homepage: https://github.com/ameen/gitdir
-    maintainer: ameen
+    vendor: Ameen-Sha-Cheerangan
+    homepage: https://github.com/Ameen-Sha-Cheerangan/GitDir
+    maintainer: Ameen-Sha-Cheerangan
     description: Download specific directories from GitHub repositories at lightning speed.
     license: MIT
     formats:
@@ -46,26 +46,26 @@ nfpms:
 
 brews:
   - repository:
-      owner: ameen
+      owner: Ameen-Sha-Cheerangan
       name: homebrew-tap
     commit_author:
-      name: ameen
-      email: ameen@users.noreply.github.com
+      name: Ameen-Sha-Cheerangan
+      email: ameenshac981@gmail.com
     commit_msg_template: "Brew formula update for {{ .ProjectName }} version {{ .Tag }}"
     description: "Download specific directories from GitHub repositories at lightning speed."
-    homepage: "https://github.com/ameen/gitdir"
+    homepage: "https://github.com/Ameen-Sha-Cheerangan/GitDir"
     license: "MIT"
     
 scoops:
   - repository:
-      owner: ameen
+      owner: Ameen-Sha-Cheerangan
       name: scoop-bucket
     commit_author:
-      name: ameen
-      email: ameen@users.noreply.github.com
+      name: Ameen-Sha-Cheerangan
+      email: ameenshac981@gmail.com
     commit_msg_template: "Scoop update for {{ .ProjectName }} version {{ .Tag }}"
     description: "Download specific directories from GitHub repositories at lightning speed."
-    homepage: "https://github.com/ameen/gitdir"
+    homepage: "https://github.com/Ameen-Sha-Cheerangan/GitDir"
     license: "MIT"
 
 checksum:
