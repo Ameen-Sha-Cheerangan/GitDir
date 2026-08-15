@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/ameen/gitdir/internal/git"
-	"github.com/ameen/gitdir/internal/github"
+	"github.com/Ameen-Sha-Cheerangan/GitDir/internal/git"
+	"github.com/Ameen-Sha-Cheerangan/GitDir/internal/github"
 	"github.com/spf13/cobra"
 )
 

@@ -6,7 +6,7 @@ import (
 	"os/exec"
 	"path/filepath"
 
-	"github.com/ameen/gitdir/internal/github"
+	"github.com/Ameen-Sha-Cheerangan/GitDir/internal/github"
 )
 
 // Download handles the sparse checkout of a specific directory.

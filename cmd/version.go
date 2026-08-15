@@ -3,7 +3,7 @@ package cmd
 import (
 	"fmt"
 
-	"github.com/ameen/gitdir/internal/version"
+	"github.com/Ameen-Sha-Cheerangan/GitDir/internal/version"
 	"github.com/spf13/cobra"
 )
 

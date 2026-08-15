@@ -2,7 +2,7 @@
 // It delegates immediately to the cmd package — zero logic lives here.
 package main
 
-import "github.com/ameen/gitdir/cmd"
+import "github.com/Ameen-Sha-Cheerangan/GitDir/cmd"
 
 func main() {
 	cmd.Execute()

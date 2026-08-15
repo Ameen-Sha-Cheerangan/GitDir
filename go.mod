@@ -1,4 +1,4 @@
-module github.com/ameen/gitdir
+module github.com/Ameen-Sha-Cheerangan/GitDir
 
 go 1.25.0
 
