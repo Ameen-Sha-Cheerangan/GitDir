@@ -29,8 +29,20 @@ Have you ever wanted to download just a single folder from a massive GitHub repo
 
 ### Homebrew (macOS & Linux)
 ```bash
-brew install ameen/tap/gitdir
+brew tap Ameen-Sha-Cheerangan/homebrew-tap
+brew install gitdir
 ```
+
+<details>
+<summary>⚠️ Getting a "not trusted" warning?</summary>
+<br>
+Because this is a third-party tap (not yet in Homebrew Core), Homebrew may ask you to explicitly trust the repository before installing. Simply run:
+
+```bash
+brew trust Ameen-Sha-Cheerangan/tap
+brew install gitdir
+```
+</details>
 
 ### APT (Debian/Ubuntu)
 ```bash
