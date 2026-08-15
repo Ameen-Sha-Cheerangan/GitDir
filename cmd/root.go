@@ -6,7 +6,6 @@ import (
 
 	"github.com/ameen/gitdir/internal/git"
 	"github.com/ameen/gitdir/internal/github"
-	"github.com/pterm/pterm"
 	"github.com/spf13/cobra"
 )
 
@@ -24,12 +23,9 @@ files you need — fast, efficient, and bandwidth-friendly.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		rawURL := args[0]
 
-		pterm.DefaultHeader.WithFullWidth().WithBackgroundStyle(pterm.NewStyle(pterm.BgLightBlue)).WithTextStyle(pterm.NewStyle(pterm.FgBlack)).Println("GitDir")
-
-		spinner, _ := pterm.DefaultSpinner.Start("Parsing GitHub URL...")
 		repoInfo, err := github.ParseURL(rawURL)
 		if err != nil {
-			spinner.Fail(fmt.Sprintf("Invalid URL: %v", err))
+			fmt.Fprintf(os.Stderr, "fatal: invalid URL: %v\n", err)
 			os.Exit(1)
 		}
 		
@@ -39,16 +35,16 @@ files you need — fast, efficient, and bandwidth-friendly.`,
 		} else {
 			targetPath = "entire repository"
 		}
-		spinner.UpdateText(fmt.Sprintf("Downloading %s from %s/%s...", targetPath, repoInfo.Owner, repoInfo.Repo))
+		
+		fmt.Printf("Downloading '%s' from %s/%s...\n", targetPath, repoInfo.Owner, repoInfo.Repo)
 
 		err = git.Download(repoInfo, destDir)
 		if err != nil {
-			spinner.Fail(fmt.Sprintf("Failed to download: %v", err))
+			fmt.Fprintf(os.Stderr, "fatal: failed to download: %v\n", err)
 			os.Exit(1)
 		}
 
-		spinner.Success("Successfully downloaded to your current directory!")
-		pterm.Success.Printf("Ready to use. Happy coding!\n")
+		fmt.Println("Done.")
 	},
 }
 
