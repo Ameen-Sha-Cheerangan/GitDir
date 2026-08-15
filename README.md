@@ -34,7 +34,7 @@ brew install ameen/tap/gitdir
 
 ### APT (Debian/Ubuntu)
 ```bash
-echo 'deb [trusted=yes] https://apt.fury.io/ameen/ /' | sudo tee /etc/apt/sources.list.d/gitdir.list
+echo 'deb [trusted=yes] https://apt.fury.io/ameen-sha/ /' | sudo tee /etc/apt/sources.list.d/gitdir.list
 sudo apt update && sudo apt install gitdir
 ```
 
