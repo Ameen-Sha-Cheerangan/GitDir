@@ -34,7 +34,7 @@ files you need — fast, efficient, and bandwidth-friendly.`,
 
 		repoInfo, err := github.ParseURL(rawURL)
 		if err != nil {
-			fmt.Fprintf(os.Stderr, "%sfatal: invalid URL: %v%s\n", ColorRed, err, ColorReset)
+			fmt.Fprintf(os.Stderr, "%sError: invalid URL: %v%s\n", ColorYellow, err, ColorReset)
 			os.Exit(1)
 		}
 		
@@ -53,7 +53,7 @@ files you need — fast, efficient, and bandwidth-friendly.`,
 
 		err = git.Download(repoInfo, destDir)
 		if err != nil {
-			fmt.Fprintf(os.Stderr, "%sfatal: %v%s\n", ColorRed, err, ColorReset)
+			fmt.Fprintf(os.Stderr, "%sError: %v%s\n", ColorYellow, err, ColorReset)
 			os.Exit(1)
 		}
 
