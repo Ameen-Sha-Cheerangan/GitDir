@@ -1,17 +1,17 @@
-Date: Sat, 15 Aug 2026 17:05:03 +0000
+Date: Sat, 15 Aug 2026 17:55:16 +0000
 MD5Sum:
- 7e8bc5c0c1bcc586566f2b511fef8352              972 Packages
- 383e44a31939d927cf7dab2fcc3710dd              490 Packages.gz
- 01cb1528cc967bef373382105a264677               38 Release
+ 24d14058c34aa8b5555edd2f9fcb2eab             1944 Packages
+ 52f35b33748a0181395840a41ea85ede              718 Packages.gz
+ e52d7fa08a2c72f33d4251aa5fe85f9b               38 Release
 SHA1:
- 8e2be33ccdb20b5d3bbab8626f1af71c28603e4b              972 Packages
- f182e4c71798d81d10a8b22ea982aff0113017fa              490 Packages.gz
- d93d5b54a1c78f1f042b0fe8982e3b1a9b17b050               38 Release
+ eaf5ab9c967eb60db11035ce513328a261ac3f01             1944 Packages
+ ac2e3aae60a3ab4c13fbc889479ab9fb0801baa2              718 Packages.gz
+ 7c94bb4b8896207638a4cb03de51185afa0dc13c               38 Release
 SHA256:
- 926948ad2e94e8f30ef222bf6d26489f9ca301c4624ccc7c88c796e94d5dedae              972 Packages
- 517aca5da2d0a0de805b6b21630abd3a54636a85dbe9dda37e44ed87b7977ca9              490 Packages.gz
- bdeb04b7e92ccc0e4469a82f4bce73abd0ea58ac489b77398bfb4e219eee2aae               38 Release
+ 129484cc6dfaf5d159aacf7f49d8a7310216ceb4787af0f6d0f907a7976a755d             1944 Packages
+ 1903327d689774e00f08c1ddbef74b30b601ed09ebc3d0210d8eed9de8127519              718 Packages.gz
+ d801d989cba4cc92c897f3b70dfcab16ddf0eb8d0acb2f1f2b215476a1ae787f               38 Release
 SHA512:
- f007b596ee5b1c308a037319691e40e6428faaeabeaa9f6b6817803525e78d0a640d7315a9f35b4a4b731fc5c214653b0482f6a523ff7091b7da394009808041              972 Packages
- 6f2fec778e2106a417b91b2598d4d892adea5c7ede941fd0f9064bd58ac374b0f2659c474159897955febf9e866be593aeffd0f5a4786c2dec8c8dcc4e7eac17              490 Packages.gz
- 4d75f00154ac436440d9c748936d378e5892ea9bedb6512519e848cb05cd26395acbc26304adc4512739078083671db211e6a0cf23697e7046425e37b1a6e5af               38 Release
+ f116d48dec6fac85a935253ce6d6738b87ac066538779f947d2bf9779e32322872fdb187a9cdf696e76e072471a9e2b71f68188527eebbc3e609ff8a32d9c864             1944 Packages
+ 2cf3c26c65a47402bc78aeb313aaafb08fe3f7e1e2554a8dc2f80d236bd37e2c092e946de898d20ae31688271c066564ea5f99ed8ffeee241b22deb50b4237e3              718 Packages.gz
+ ff5558cb681f8454a5e31451c2bacab6b323c84c59bbd3e1988e760d7daad842b120a5519b477e2152b33595d9c9613ece7733eea62d9f761a947d520e5a8e7d               38 Release

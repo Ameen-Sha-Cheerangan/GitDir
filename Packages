@@ -26,3 +26,31 @@ Priority: optional
 Homepage: https://github.com/Ameen-Sha-Cheerangan/GitDir
 Description: Download specific directories from GitHub repositories at lightning speed.
 
+Package: gitdir
+Version: 1.1.1
+Architecture: amd64
+Maintainer: Ameen-Sha-Cheerangan
+Installed-Size: 2544
+Filename: ./gitdir_1.1.1_linux_amd64.deb
+Size: 1125836
+MD5sum: b34f928b5a4c324257d4dddb2105b9f7
+SHA1: 5f68c31b4ceb7c092d056290256ef6fb23f00dbd
+SHA256: b4600e81c4bf7b1c7c21fee09d1e74d4f8ed6047b2506d20d37aadbb7b89cda1
+Priority: optional
+Homepage: https://github.com/Ameen-Sha-Cheerangan/GitDir
+Description: Download specific directories from GitHub repositories at lightning speed.
+
+Package: gitdir
+Version: 1.1.1
+Architecture: arm64
+Maintainer: Ameen-Sha-Cheerangan
+Installed-Size: 2496
+Filename: ./gitdir_1.1.1_linux_arm64.deb
+Size: 1040722
+MD5sum: f9a45b6844699e7f8ea71e1cb73160c9
+SHA1: 9b2dc91f21c92e02de03fa67eb866d12e9c8c6b1
+SHA256: e48664a95ac48fe95891d4b79203856efdf1e0f99820289713eb0a5f48d5f5b8
+Priority: optional
+Homepage: https://github.com/Ameen-Sha-Cheerangan/GitDir
+Description: Download specific directories from GitHub repositories at lightning speed.
+
