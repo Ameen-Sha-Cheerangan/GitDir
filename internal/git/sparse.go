@@ -19,23 +19,26 @@ func Download(repo *github.RepoInfo, destDir string) error {
 	defer os.RemoveAll(tmpDir)
 
 	// Step 1: Clone with sparse checkout
-	args := []string{"clone", "--depth", "1", "--filter=blob:none", "--sparse"}
+	args := []string{"clone", "--progress", "--depth", "1", "--filter=blob:none", "--sparse"}
 	if repo.Branch != "" {
 		args = append(args, "--branch", repo.Branch)
 	}
 	args = append(args, repo.URL(), tmpDir)
 
 	cmd := exec.Command("git", args...)
-	// We can capture output if needed, or hide it
-	if out, err := cmd.CombinedOutput(); err != nil {
-		return fmt.Errorf("git clone failed: %s\n%s", err, out)
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+	if err := cmd.Run(); err != nil {
+		return fmt.Errorf("git clone failed: %w", err)
 	}
 
 	// Step 2: Set sparse checkout path
 	if repo.Path != "" {
 		cmd = exec.Command("git", "-C", tmpDir, "sparse-checkout", "set", repo.Path)
-		if out, err := cmd.CombinedOutput(); err != nil {
-			return fmt.Errorf("git sparse-checkout failed: %s\n%s", err, out)
+		cmd.Stdout = os.Stdout
+		cmd.Stderr = os.Stderr
+		if err := cmd.Run(); err != nil {
+			return fmt.Errorf("git sparse-checkout failed: %w", err)
 		}
 	}
 
