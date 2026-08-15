@@ -23,9 +23,18 @@ files you need — fast, efficient, and bandwidth-friendly.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		rawURL := args[0]
 
+		// Basic ANSI Colors (0 dependencies)
+		const (
+			ColorReset  = "\033[0m"
+			ColorCyan   = "\033[36m"
+			ColorGreen  = "\033[32m"
+			ColorYellow = "\033[33m"
+			ColorRed    = "\033[31m"
+		)
+
 		repoInfo, err := github.ParseURL(rawURL)
 		if err != nil {
-			fmt.Fprintf(os.Stderr, "fatal: invalid URL: %v\n", err)
+			fmt.Fprintf(os.Stderr, "%sfatal: invalid URL: %v%s\n", ColorRed, err, ColorReset)
 			os.Exit(1)
 		}
 		
@@ -36,15 +45,19 @@ files you need — fast, efficient, and bandwidth-friendly.`,
 			targetPath = "entire repository"
 		}
 		
-		fmt.Printf("Downloading '%s' from %s/%s...\n", targetPath, repoInfo.Owner, repoInfo.Repo)
+		fmt.Printf("%sDownloading%s '%s%s%s' %sfrom%s %s%s/%s%s...\n", 
+			ColorCyan, ColorReset,
+			ColorYellow, targetPath, ColorReset,
+			ColorCyan, ColorReset,
+			ColorGreen, repoInfo.Owner, repoInfo.Repo, ColorReset)
 
 		err = git.Download(repoInfo, destDir)
 		if err != nil {
-			fmt.Fprintf(os.Stderr, "fatal: failed to download: %v\n", err)
+			fmt.Fprintf(os.Stderr, "%sfatal: %v%s\n", ColorRed, err, ColorReset)
 			os.Exit(1)
 		}
 
-		fmt.Println("Done.")
+		fmt.Printf("%sDone.%s\n", ColorGreen, ColorReset)
 	},
 }
 

@@ -11,6 +11,20 @@ import (
 
 // Download handles the sparse checkout of a specific directory.
 func Download(repo *github.RepoInfo, destDir string) error {
+	// If destDir is not provided, use the base name of the repo path
+	if destDir == "" {
+		if repo.Path != "" {
+			destDir = filepath.Base(repo.Path)
+		} else {
+			destDir = repo.Repo
+		}
+	}
+
+	// Check if destination already exists BEFORE doing any work
+	if _, err := os.Stat(destDir); !os.IsNotExist(err) {
+		return fmt.Errorf("destination '%s' already exists.\n💡 Tip: Provide a different name using the -o flag (e.g., gitdir <url> -o new_folder)\n   or remove the existing '%s' directory first", destDir, destDir)
+	}
+
 	// Create a temporary directory for the sparse clone
 	tmpDir, err := os.MkdirTemp("", "gitdir-*")
 	if err != nil {
@@ -48,20 +62,6 @@ func Download(repo *github.RepoInfo, destDir string) error {
 	// Check if the source path exists
 	if _, err := os.Stat(srcPath); os.IsNotExist(err) {
 		return fmt.Errorf("path '%s' does not exist in the repository", repo.Path)
-	}
-
-	// If destDir is not provided, use the base name of the repo path
-	if destDir == "" {
-		if repo.Path != "" {
-			destDir = filepath.Base(repo.Path)
-		} else {
-			destDir = repo.Repo
-		}
-	}
-
-	// Check if destination already exists
-	if _, err := os.Stat(destDir); !os.IsNotExist(err) {
-		return fmt.Errorf("destination '%s' already exists", destDir)
 	}
 
 	// Move the directory (we use rename)
